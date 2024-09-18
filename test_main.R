@@ -146,6 +146,7 @@ describe("Bonus tests! Make your code work when there are NAs!", {
 
 describe("summarize_matrix() works with na.rm=FALSE", {
   m <- matrix(1:9, nrow=3, byrow=T)
+  m[2,1] <- NA
   m_summary <- summarize_matrix(m, na.rm=FALSE)
 
   it("returns mean correctly", {
@@ -175,6 +176,8 @@ describe("summarize_matrix() works with na.rm=FALSE", {
 })
 
 describe("summarize_matrix() works with na.rm=TRUE", {
+  m <- matrix(1:9, nrow=3, byrow=T)
+  m[2,1] <- NA
   m_summary <- summarize_matrix(m, na.rm=TRUE)
 
   it("returns mean correctly", {

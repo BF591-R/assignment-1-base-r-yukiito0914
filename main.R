@@ -155,7 +155,11 @@ summarize_matrix <- function(x, na.rm=FALSE) {
       return(sum(1 < x & x < 5, na.rm=na.rm))
     }
     num_na <- function(x) {
-      return(sum(is.na(x)))  
+      if (na.rm) {
+        return(0)
+      } else {
+        return(sum(is.na(x)))
+      }
     }
     out_df <- data.frame(
       mean=apply(x, 1, mean, na.rm=na.rm),
